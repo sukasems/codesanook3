@@ -1,0 +1,28 @@
+@model Movie
+@{
+    ViewData["Title"] = "Delete Movie";
+}
+
+
+<table>
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(_ => Model.Title)</th>
+            <th>@Html.DisplayNameFor(_ => Model.ReleaseDate)</th>
+            <th>@Html.DisplayNameFor(_ => Model.Genre)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr> 
+            <td>@Html.DisplayFor(_ => Model.Title)</td>
+            <td>@Html.DisplayFor(_ => Model.ReleaseDate)</td>
+            <td>@Html.DisplayFor(_ => Model.Genre)</td>
+        </tr>
+    </tbody>
+</table>
+
+<form asp-action="DeleteConfirm">
+    <input type="hidden" asp-for="Id"/>
+    <a asp-action="Index">Back to List</a>
+    <input type="submit" value="Delete"  />
+</form>

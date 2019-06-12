@@ -1,0 +1,44 @@
+﻿@model IList<Movie>
+@{
+    ViewData["Title"] = "Movie";
+}
+
+<h2>Movies</h2>
+
+<p>
+    <a asp-action="create">Create New</a>
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>ReleaseDate</th>
+            <th>Genre</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Movie item in Model)
+        {
+            <tr> 
+                <td>@Html.DisplayForModel(m => m.Title)</td>
+                <td>@Html.DisplayForModel(m => m.ReleaseDate)</td>
+                <td>@Html.DisplayForModel(m => m.Genre)</td>
+                <td>
+                    <a asp-action="edit" asp-route-id="Id">Edit</a>
+                    <a asp-action="details" asp-route-id="Id">Details</a>
+                    <a asp-action="delete" asp-route-id="Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+<!-- 
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div> -->
